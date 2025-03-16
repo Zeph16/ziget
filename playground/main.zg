@@ -1,0 +1,15 @@
+procedure greet_times(name -> string, times -> number) {
+  define i := times;
+  loop {
+    when i is 0 {
+      leave;
+    }
+
+    print("Hello, {}", name);
+    i := i - 1;
+  }
+}
+
+procedure main {
+  greet_times("Ziget", 3);
+}

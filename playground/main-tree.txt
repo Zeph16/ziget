@@ -1,0 +1,139 @@
+ProgramNode {
+    procedures: [
+        ProcedureNode {
+            name: "greet_times",
+            params: [
+                ParameterNode {
+                    name: "name",
+                    param_type: StringType,
+                },
+                ParameterNode {
+                    name: "times",
+                    param_type: NumberType,
+                },
+            ],
+            return_type: VoidType,
+            body: BlockNode {
+                statements: [
+                    VariableDeclaration(
+                        VariableDeclarationNode {
+                            name: "i",
+                            var_type: Some(
+                                NumberType,
+                            ),
+                            initializer: Variable(
+                                "times",
+                            ),
+                        },
+                    ),
+                    Loop(
+                        LoopNode {
+                            body: BlockNode {
+                                statements: [
+                                    Conditional(
+                                        ConditionalNode {
+                                            condition: BinaryOperation(
+                                                BinaryOperationNode {
+                                                    left: Variable(
+                                                        "i",
+                                                    ),
+                                                    operator: Is,
+                                                    right: Literal(
+                                                        LiteralNode {
+                                                            value: NumberValue(
+                                                                0.0,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            consequence: BlockNode {
+                                                statements: [
+                                                    Break,
+                                                ],
+                                            },
+                                            alternative: None,
+                                        },
+                                    ),
+                                    Expression(
+                                        ProcedureCall(
+                                            ProcedureCallNode {
+                                                name: "print",
+                                                args: [
+                                                    Literal(
+                                                        LiteralNode {
+                                                            value: StringValue(
+                                                                "Hello, %s\n",
+                                                            ),
+                                                        },
+                                                    ),
+                                                    Variable(
+                                                        "name",
+                                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    ),
+                                    Assignment(
+                                        AssignmentNode {
+                                            name: "i",
+                                            value: BinaryOperation(
+                                                BinaryOperationNode {
+                                                    left: Variable(
+                                                        "i",
+                                                    ),
+                                                    operator: Minus,
+                                                    right: Literal(
+                                                        LiteralNode {
+                                                            value: NumberValue(
+                                                                1.0,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                        },
+                    ),
+                    Return(
+                        ReturnNode {
+                            value: None,
+                        },
+                    ),
+                ],
+            },
+        },
+    ],
+    main: MainProcedureNode {
+        body: BlockNode {
+            statements: [
+                Expression(
+                    ProcedureCall(
+                        ProcedureCallNode {
+                            name: "greet_times",
+                            args: [
+                                Literal(
+                                    LiteralNode {
+                                        value: StringValue(
+                                            "Ziget",
+                                        ),
+                                    },
+                                ),
+                                Literal(
+                                    LiteralNode {
+                                        value: NumberValue(
+                                            3.0,
+                                        ),
+                                    },
+                                ),
+                            ],
+                        },
+                    ),
+                ),
+            ],
+        },
+    },
+}

@@ -1,0 +1,131 @@
+(
+    0,
+    SymbolTable {
+        id: 0,
+        parent_id: None,
+        symbols: {
+            "greet_times": SymbolInfo {
+                symbol_type: Procedure {
+                    return_type: VoidType,
+                    param_types: [
+                        StringType,
+                        NumberType,
+                    ],
+                },
+                used: true,
+                initialized: true,
+            },
+            "print": SymbolInfo {
+                symbol_type: Procedure {
+                    return_type: VoidType,
+                    param_types: [
+                        StringType,
+                    ],
+                },
+                used: true,
+                initialized: true,
+            },
+        },
+        children: [
+            1,
+            5,
+        ],
+    },
+)
+(
+    2,
+    SymbolTable {
+        id: 2,
+        parent_id: Some(
+            1,
+        ),
+        symbols: {
+            "i": SymbolInfo {
+                symbol_type: Variable(
+                    NumberType,
+                ),
+                used: true,
+                initialized: true,
+            },
+        },
+        children: [
+            3,
+        ],
+    },
+)
+(
+    3,
+    SymbolTable {
+        id: 3,
+        parent_id: Some(
+            2,
+        ),
+        symbols: {},
+        children: [
+            4,
+        ],
+    },
+)
+(
+    4,
+    SymbolTable {
+        id: 4,
+        parent_id: Some(
+            3,
+        ),
+        symbols: {},
+        children: [],
+    },
+)
+(
+    5,
+    SymbolTable {
+        id: 5,
+        parent_id: Some(
+            0,
+        ),
+        symbols: {},
+        children: [
+            6,
+        ],
+    },
+)
+(
+    6,
+    SymbolTable {
+        id: 6,
+        parent_id: Some(
+            5,
+        ),
+        symbols: {},
+        children: [],
+    },
+)
+(
+    1,
+    SymbolTable {
+        id: 1,
+        parent_id: Some(
+            0,
+        ),
+        symbols: {
+            "times": SymbolInfo {
+                symbol_type: Variable(
+                    NumberType,
+                ),
+                used: true,
+                initialized: true,
+            },
+            "name": SymbolInfo {
+                symbol_type: Variable(
+                    StringType,
+                ),
+                used: true,
+                initialized: true,
+            },
+        },
+        children: [
+            2,
+        ],
+    },
+)

@@ -1,0 +1,102 @@
+################# PREWRITTEN TESTS #################
+
+####### LEXICAL ANALYSIS TESTS
+### Test 1: Unknown characters "`", "@", "~"...
+# ~abc @cde `efg
+
+
+####### SYNTAX ANALYSIS TESTS
+### Test 1: Code outside of procedures (illegal)
+# define x := 5;
+
+### Test 2: No main procedure
+# procedure test {
+#   define x := 5;
+# }
+
+### Test 3: No semicolon
+# procedure main {
+#   define x := 5
+# }
+
+### Test 4: No assignment operator
+# procedure main {
+#   define x 5
+# }
+
+### Test 5: Forgetting a letter (efine is treated as a variable expression and the statement is expected to end)
+# procedure main {
+#   efine x := 5;
+# }
+
+# MANY MORE PARSING ERRORS HAVE BEEN TESTED, THESE ARE JUST SAMPLES
+
+
+####### SEMANTIC ANALYSIS ERROR TESTS
+### Test 1: Symbol not declared
+# procedure main {
+#   # b is treated as type "void"
+#   define a := b;
+#   greet("Ziget");
+# }
+
+### Test 2: Symbol already declared
+# procedure test {}
+# procedure test {}
+# procedure main {
+#   define a := 5;
+#   define a := 6;
+# }
+
+### Test 3: leave and repeat statements outside of a loop
+# procedure test {
+#   repeat;
+# }
+# procedure main {
+#   test();
+#   leave;
+# }
+
+### Test 3: Type errors
+# procedure main {
+#   define a := 5;
+#   define a := "5";
+#   define x := "A string";
+#   define y := x + 5;
+#   define z -> boolean := 5;
+# }
+
+### Test 4: Procedure errors
+# procedure add(a -> number, b -> number) -> number {
+#   yield a + b;
+# }
+
+# procedure add_no_return_type(a -> number, b -> number) {
+#   yield a + b;
+# }
+
+# procedure main {
+#   define sum1 := add(5, "5");
+#   define sum2 := add(5, 5, 5);
+#   define sum3 := add();
+
+#   define sum4 := add_no_return_type(5, 5);
+# }
+
+####### SEMANTIC ANALYSIS WARNING TESTS
+### Test 1: Unused symbols and unreachable code
+# procedure test {
+  # define a := 5;
+# }
+
+# procedure main {
+  # define x := 5;
+  # print("The value of x is {}", x);
+  # yield;
+
+  # print("This should not be printed");
+# }
+
+
+
+################# END OF PREWRITTEN TESTS #################

@@ -1,0 +1,7 @@
+services:
+  ziget:
+    build: .
+    volumes:
+      - .:/ziget
+    stdin_open: true
+    tty: true
