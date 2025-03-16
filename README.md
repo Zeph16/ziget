@@ -25,7 +25,9 @@ This folder is mapped to the container, allowing you to edit the `.zg` files dir
 
 2. Open a terminal in the directory with the  `docker-compose.yml` file. Compile and run the `main.zg` Ziget file using Docker Compose:
 
-    **docker compose up**
+```bash
+docker compose up
+```
   
 3. Intermediate outputs like tokens (`main-tokens.txt`), AST (`main-tree.txt`), symbol tables (`main-symbol_tables.txt`), the intermediate representation (`main.ll`), assembly code (`main.s`) and the object code (`main.s`), as well as the linked executable itself (`main.out`) are accessible in the `playground/` folder. These files provide a transparent view of each stage in the compilation process.The final executable can only be run within the compilation environment which is inside the container. That’s why the container automatically runs the executable after compiling in order to show the output if any.
   
@@ -36,37 +38,24 @@ The entire frontend, including lexical analysis, parsing, and semantic checking,
 
 ## Language Features
 
-**Procedures: procedure**
-
-**Control Flow: when, otherwise, loop, leave, repeat**
-
-**Variable Declarations: define**
-
-**Types: number, boolean, string**
-
-**Booleans: yes, no**
-
-**Operators: +, -, *, /, %, is, isnt, and, or, <, >, <=, >=**
-
-**Return Values: yield**
-
-**Console output: print**
-
-**One line comments: #**
-
-  
+Procedures: `procedure`
+Control Flow: `when, otherwise, loop, leave, repeat`
+Variable Declarations: `define`
+Types: `number, boolean, string`
+Booleans: `yes, no`
+Operators: `+, -, *, /, %, is, isnt, and, or, <, >, <=, >=`
+Return Values: `yield`
+Console output: `print`
+One line comments: `#`
 
 ### Variables, Assignments and Types
 
 Variables are declared using the define keyword. Assignments use := instead of =. Variable types can be specified, or left out for type inference.
 
 Ziget uses three primary types:
-
-**number**: Represents floating-point numbers. Ziget does not have integers; all numbers are floats.
-
-**boolean**: Represents true or false values (yes and no).
-
-**string**: Represents text data.
+	**number**: Represents floating-point numbers. Ziget does not have integers; all numbers are floats.
+	**boolean**: Represents true or false values (yes and no).
+	**string**: Represents text data.
 
 Type declarations are optional. Ziget can infer types, but you can annotate them explicitly using the -> symbol.
 ```ziget
@@ -79,27 +68,17 @@ Type declarations are optional. Ziget can infer types, but you can annotate them
 Ziget provides basic operators for arithmetic and logical operations:
 
 **Arithmetic Operators**:
-
 +: Addition
-
 -: Subtraction or negation
-
-*: Multiplication
-
-/: Division
-
+\*: Multiplication
+\/: Division
 %: Modulo
 
 **Logical Operators**:
-
 and: Logical AND
-
 or: Logical OR
-
 is: Equality comparison
-
 isnt: Inequality comparison
-
 <, >, <=, >=: Relational comparisons
 
 ```ziget
@@ -158,7 +137,6 @@ procedure main {
 }
 ```
 
-    	
 
 Procedures in Ziget return values using the yield keyword, which is equivalent to return in other languages. They can return values and have typed parameters. Procedures can also be declared without return types if not required.
 
