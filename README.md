@@ -53,8 +53,11 @@ One line comments: `#`
 Variables are declared using the define keyword. Assignments use := instead of =. Variable types can be specified, or left out for type inference.
 
 Ziget uses three primary types:
+
 	**number**: Represents floating-point numbers. Ziget does not have integers; all numbers are floats.
+	
 	**boolean**: Represents true or false values (yes and no).
+	
 	**string**: Represents text data.
 
 Type declarations are optional. Ziget can infer types, but you can annotate them explicitly using the -> symbol.
@@ -69,16 +72,25 @@ Ziget provides basic operators for arithmetic and logical operations:
 
 **Arithmetic Operators**:
 +: Addition
+
 -: Subtraction or negation
+
 \*: Multiplication
+
 \/: Division
-%: Modulo
+
+\%: Modulo
 
 **Logical Operators**:
+
 and: Logical AND
+
 or: Logical OR
+
 is: Equality comparison
+
 isnt: Inequality comparison
+
 <, >, <=, >=: Relational comparisons
 
 ```ziget
@@ -137,6 +149,7 @@ procedure main {
 }
 ```
 
+    	
 
 Procedures in Ziget return values using the yield keyword, which is equivalent to return in other languages. They can return values and have typed parameters. Procedures can also be declared without return types if not required.
 
