@@ -188,16 +188,16 @@ procedure fibonacci(n -> number) -> number {
     define a := 0;
     define b := 1;
     define i := 0;
-    
-	when n is 0 {
+
+    when n is 0 {
         yield a;
-	}
+    }
     
-   when n is 1 {
+    when n is 1 {
         yield b;
     }
     
-	loop {
+    loop {
         when i is n - 1 {
             leave;
         }
@@ -207,14 +207,14 @@ procedure fibonacci(n -> number) -> number {
         i := i + 1;
     }
     
-	yield b;
+    yield b;
 }
 procedure main {
-	define num := 5;
+    define num := 5;
     define fact := factorial(num);
     print("The factorial of {} is {}", num, fact);
     
-	define fib_num := 10;
+    define fib_num := 10;
     define fib_result := fibonacci(fib_num);
     print("The Fibonacci number at position {} is {}", fib_num, fib_result);
 }
